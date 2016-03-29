@@ -44,7 +44,7 @@ namespace exercise5
         {
             this.firstName = firstName;
             this.lastName = lastName;
-            socialSecutiryNr = Menu.CheckValidSSN(ssn);
+            socialSecutiryNr = ssn;
             hourWage = hourlyWage;
         }
 

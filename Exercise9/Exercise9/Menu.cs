@@ -158,39 +158,18 @@ namespace Exercise9
             }
             Console.ReadKey();
         }
+    
 
-        public static string CheckValidSSN()
+        public string CheckValidSSN(string ssn)
         {
             ulong validSSNnr = 0;
             bool loop = true;
-
             while (loop)
             {
-                bool valid = ulong.TryParse(Console.ReadLine(), out validSSNnr);
-
-                if (valid && validSSNnr.ToString().Length == 10)
-                {
-                    loop = false;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid socialsecurity number");
-                }
-
-
-            }
-            string validSSN = validSSNnr.ToString().Insert(6, "-");
-            return validSSN;
-        }
-
-        public static string CheckValidSSN(string ssn)
-        {
-            ulong validSSNnr = 0;
-            bool loop = true;
+                
             ssn = ssn.Replace("-", "");
             
-            while (loop)
-            {
+            
                 bool valid = ulong.TryParse(ssn, out validSSNnr);
 
                 if (valid && validSSNnr.ToString().Length == 10)
@@ -199,7 +178,10 @@ namespace Exercise9
                 }
                 else
                 {
-                    Console.WriteLine("Invalid socialsecurity number");
+                    Console.Write("Invalid socialsecurity number"+
+                        "\n try again: ");
+                    ssn = Console.ReadLine();
+
                 }
 
 
